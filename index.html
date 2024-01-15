@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Coming Soon Page</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="style.css" />
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+         rel="stylesheet"
+      />
+   </head>
+   <body>
+      <!-- Hero with background video -->
+      <div class="container">
+         <!-- video -->
+         <div class="container_overlay"></div>
+
+         <video
+            playsinline="playsinline"
+            autoplay="autoplay"
+            muted="muted"
+            loop="loops"
+            loading="lazy"
+            class="container_video"
+         >
+            <source src="pexels-videobackground-stars.mp4" type="video/mp4" />
+         </video>
+         <!-- /video -->
+
+         <div class="text-content">
+            <div class="text-header">
+               <img src="faviconMe.png" alt="" />
+               <h2>Grzegorz Czekaj</h2>
+            </div>
+
+            <p>Website Is Under Maintenance</p>
+            <h1>We're <span class="text-glow">Launching</span> Soon</h1>
+
+            <div class="launch-time">
+               <div class="text-color">
+                  <p id="days">00</p>
+                  <span>DAYS</span>
+               </div>
+               <div>
+                  <p id="hours">00</p>
+                  <span>Hours</span>
+               </div>
+               <div>
+                  <p id="minutes">00</p>
+                  <span>Minutes</span>
+               </div>
+               <div>
+                  <p id="seconds">00</p>
+                  <span>Seconds</span>
+               </div>
+            </div>
+
+            <button type="button">Learn More ➡️</button>
+
+            <img src="spacecraft-303592_1280.png" alt="rocket" class="rocket" />
+         </div>
+      </div>
+
+      <script>
+         let countDownDate = new Date("Apr 20, 2024 23:59:59").getTime();
+         let x = setInterval(() => {
+            let now = new Date().getTime();
+            let distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor(
+               (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            let minutes = Math.floor(
+               (distance % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days
+               .toString()
+               .padStart(2, 0);
+            document.getElementById("hours").textContent = hours
+               .toString()
+               .padStart(2, 0);
+            document.getElementById("minutes").textContent = minutes
+               .toString()
+               .padStart(2, 0);
+            document.getElementById("seconds").textContent = seconds
+               .toString()
+               .padStart(2, 0);
+         }, 1000);
+
+         if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "00";
+            document.getElementById("seconds").textContent = "00";
+         }
+      </script>
+   </body>
+</html>

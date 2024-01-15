@@ -1,0 +1,157 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "poppins";
+}
+
+/* video bg */
+.container {
+   position: relative;
+   height: 100vh;
+   width: 100vw;
+   overflow: hidden;
+   /* background-color: var(--primary-color); */
+}
+
+.container_video {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: auto;
+   height: auto;
+   min-width: 100%;
+   min-height: 100%;
+}
+
+.container_overlay {
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   background: rgba(0, 0, 0, 0.6);
+   z-index: 1;
+}
+/* /video */
+
+.text-content {
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   z-index: 10;
+   color: #fff;
+}
+
+.text-header {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   padding: 60px 0px;
+}
+
+.text-header h2 {
+   font-size: 1.5em;
+   font-weight: 400;
+}
+
+.text-content h1 {
+   font-size: 64px;
+   font-weight: 600;
+   line-height: 1;
+   text-align: center;
+   margin: 10px 0;
+}
+
+/* Launch time */
+.launch-time {
+   display: flex;
+   gap: 1.5em;
+   text-align: center;
+}
+
+.launch-time div p {
+   font-size: 60px;
+   font-weight: 500;
+   margin-bottom: -15px;
+}
+
+.text-color {
+   color: #cc005f;
+   font-weight: bold;
+}
+
+/* Btn */
+
+.text-content button {
+   background: transparent;
+   margin-top: 60px;
+   border: 2px solid #fff;
+   outline: none;
+   padding: 12px 25px;
+   color: #fff;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+.text-content button:hover {
+   background: #cc005f;
+   border: 2px solid #cc005f;
+}
+
+.rocket {
+   width: 150px;
+   position: absolute;
+   right: 10%;
+   bottom: -100%;
+   animation: rocket 20s linear infinite;
+}
+
+@keyframes rocket {
+   0% {
+      bottom: -100%;
+      opacity: 0;
+   }
+   100% {
+      bottom: 150%;
+      opacity: 1;
+   }
+}
+
+.text-glow {
+   animation: flicker 1.5s infinite alternate;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+   0%,
+   18%,
+   22%,
+   25%,
+   53%,
+   57%,
+   100% {
+      text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #cc005f,
+         0 0 80px #cc005f, 0 0 90px #cc005f, 0 0 100px #cc005f,
+         0 0 150px #cc005f;
+   }
+
+   20%,
+   24%,
+   55% {
+      text-shadow: none;
+   }
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+   .rocket {
+      width: 50px;
+   }
+}
